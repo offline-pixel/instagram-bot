@@ -1,7 +1,8 @@
 {
-  "name": "",
+  "name": "instagram-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Automate the boring stuff with instagram bot script written in nodejs and puppeteer library which uses headless chrome browser",
+  "keywords": ["bots", "using", "script", "github", "project", "nodejs", "puppeteer", "increase", "instagram", "followers"],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
