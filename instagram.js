@@ -24,14 +24,14 @@ const instagram = {
         /* Click on the login url button */
         loginButton = await instagram.page.$x('//div[contains(text(), "Log In")]')
         await loginButton[0].click()
-        await instagram.page.waitFor(15000)
+        await instagram.page.waitFor(7000)
     },
 
     likeTagsProcess: async(tags = []) => {
         for ( let tag of tags ) {
             //ssds
             await instagram.page.goto(TAG_URL(tag), { waitUntil: "domcontentloaded" })
-            await instagram.page.waitFor(10000)
+            await instagram.page.waitFor(7000)
             console.log(tags)
             let posts = await instagram.page.$$('article > div:nth-child(3) img[decoding="auto"]')
             
@@ -39,22 +39,32 @@ const instagram = {
                 let post = posts[i]
                 /* Click on the post */
                 await post.click()
-                await instagram.page.waitFor(10000)
+                await instagram.page.waitFor(8000)
 
                 /* Wait for the model to appear */
-                await instagram.page.waitFor('span[id="react-root"]')
-                await instagram.page.waitFor(5000)
+                await instagram.page.waitFor('div[role="dialog"]')
+                await instagram.page.waitFor(7500)
 
-                let isLikable = await post.$('span[aria-label="like"')
-                if (isLikable) await post.click('span[aria-label="like"')
+                let isLikable = await instagram.page.$$('span[class="fr66n"] > button')
+                // console.log(isLikableOne)
+                // let isLikable = await post.$$('span[clas s="fr66n"]')
+                // console.log(isLikable)
+                
+                if (isLikable) {
+                    console.log("trying to like the photo")
+                    console.log(isLikable)
+                    // await post.click('span[class="fr66n"]')
+                    await isLikable[0].click()
+                }
 
                 await instagram.page.waitFor(3000)
                 /* close the model */
-                let closeModelButton = await instagram.page.$$('button.ckWGn')
+                let closeModelButton = await instagram.page.$$('svg[aria-label="Close"]')
+                console.log(closeModelButton)
                 await closeModelButton[0].click()
                 await instagram.page.waitFor(1500)                
             }
-            await instagram.page.waitFor(30000)
+            await instagram.page.waitFor(7000)
         }
     }
 }
