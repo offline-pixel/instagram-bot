@@ -2,13 +2,24 @@
   "name": "instagram-bot",
   "version": "1.0.0",
   "description": "Automate the boring stuff with instagram bot script written in nodejs and puppeteer library which uses headless chrome browser",
-  "keywords": ["bots", "using", "script", "github", "project", "nodejs", "puppeteer", "increase", "instagram", "followers"],
+  "keywords": [
+    "bots",
+    "using",
+    "script",
+    "github",
+    "project",
+    "nodejs",
+    "puppeteer",
+    "increase",
+    "instagram",
+    "followers"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "puppeteer": "^2.0.0"
+    "puppeteer": "^19.4.0"
   }
 }
